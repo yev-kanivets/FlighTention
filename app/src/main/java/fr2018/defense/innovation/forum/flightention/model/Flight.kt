@@ -4,6 +4,7 @@ data class Flight(
     val callSign: String,
     val fromAirport: String,
     val toAirport: String,
+    var lastContact: String,
     var latitude: Double,
     var longitude: Double,
     var goalLatitude: Double,

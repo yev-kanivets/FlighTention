@@ -90,9 +90,9 @@
           />
 
       <TextView
+          android:id="@+id/tvLastContact"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:text="Last contact: 30s ago"
           />
 
       <TextView

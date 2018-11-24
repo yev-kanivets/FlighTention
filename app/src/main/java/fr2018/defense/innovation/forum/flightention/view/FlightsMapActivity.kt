@@ -25,6 +25,7 @@ import kotlinx.android.synthetic.main.activity_maps.flightView
 import kotlinx.android.synthetic.main.activity_maps.ivClose
 import kotlinx.android.synthetic.main.activity_maps.tvAirplaneTitle
 import kotlinx.android.synthetic.main.activity_maps.tvCallSign
+import kotlinx.android.synthetic.main.activity_maps.tvLastContact
 import kotlinx.android.synthetic.main.activity_maps.tvRoute
 import kotlinx.android.synthetic.main.activity_maps.tvVelocity
 
@@ -97,6 +98,7 @@ class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
         (flightsOk + flightsAlert + flightsCritical).find { it.callSign == titleToDisplay }?.let {
             tvAirplaneTitle.text = it.callSign
             tvRoute.text = "${it.fromAirport} --> ${it.toAirport}"
+            tvLastContact.text = "Last contact: ${it.lastContact}"
             tvCallSign.text = "Callsign: ${it.callSign}"
             tvVelocity.text = "Velocity: ${it.velocity} km/h"
         }
