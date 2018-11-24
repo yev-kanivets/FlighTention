@@ -16,6 +16,7 @@
   <FrameLayout
       android:layout_width="wrap_content"
       android:layout_height="match_parent"
+      android:layout_gravity="start"
       android:layout_margin="16dp"
       android:clickable="true"
       >
@@ -24,9 +25,19 @@
         android:id="@+id/recyclerView"
         android:layout_width="300dp"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@color/transparentWhite"
+        android:background="@color/white"
         />
+
+    <LinearLayout
+        android:id="@+id/flightView"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+
+    </LinearLayout>
 
   </FrameLayout>
 

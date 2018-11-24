@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/transparentWhite"
+    android:background="@color/white"
     android:orientation="vertical"
     >
 
-  <VideoView
+  <View
       android:layout_width="match_parent"
       android:layout_height="1dp"
-      android:background="@color/white"
+      android:background="@color/grey"
       />
 
   <LinearLayout
@@ -33,17 +33,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="16dp"
-        android:textColor="@color/white"
+        android:textColor="@color/grey"
         android:textSize="18sp"
         android:textStyle="bold"
         />
 
   </LinearLayout>
 
-  <VideoView
+  <View
       android:layout_width="match_parent"
       android:layout_height="1dp"
-      android:background="@color/white"
+      android:background="@color/grey"
       />
 
 </LinearLayout>

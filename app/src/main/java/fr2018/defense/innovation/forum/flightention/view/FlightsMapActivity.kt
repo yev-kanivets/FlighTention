@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.View
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
@@ -20,6 +21,7 @@ import fr2018.defense.innovation.forum.flightention.repo.FlightRepositoryImpl
 import com.google.android.gms.maps.model.MapStyleOptions
 import fr2018.defense.innovation.forum.flightention.model.Flight
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
+import kotlinx.android.synthetic.main.activity_maps.flightView
 
 class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
 
@@ -58,12 +60,13 @@ class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
     override fun setMap(googleMap: GoogleMap) {
         map = googleMap
         map.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.style_json))
+        map.setOnInfoWindowClickListener { flightView.visibility = View.VISIBLE }
     }
 
     override fun moveAndZoomToCDG() {
-        val sydney = LatLng(49.0096906, 2.5479245)
-        map.addMarker(MarkerOptions().position(sydney).title("CDG"))
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 9f))
+        val cdg = LatLng(49.0096906, 2.5479245)
+        map.addMarker(MarkerOptions().position(cdg).title("CDG"))
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(cdg, 9f))
     }
 
     override fun displayFlight(markerOptions: MarkerOptions): Marker = map.addMarker(markerOptions)
