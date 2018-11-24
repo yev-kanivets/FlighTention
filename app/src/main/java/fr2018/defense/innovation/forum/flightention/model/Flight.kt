@@ -10,12 +10,4 @@ data class Flight(
     val trueTrack: Double?,
     val verticalRate: Double,
     val dangerInPercents: Int
-) {
-
-    override fun equals(other: Any?): Boolean {
-        return if (other is Flight) {
-            other.callSign == callSign
-        } else false
-    }
-
-}
+)

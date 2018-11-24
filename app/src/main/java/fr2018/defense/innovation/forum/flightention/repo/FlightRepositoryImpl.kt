@@ -4,6 +4,7 @@ import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.os.Handler
 import fr2018.defense.innovation.forum.flightention.model.Flight
+import java.util.Random
 import java.util.Timer
 import java.util.TimerTask
 
@@ -23,21 +24,33 @@ class FlightRepositoryImpl : FlightRepository {
         private val period: Long
     ) {
 
+        private val flights = mutableListOf<Flight>()
+
         fun start() {
-            val flight1 = Flight("JBU1417", 1543021860, 49.0139128, 2.5418305, false, 100.0, 0.0, 10.0, 0)
-            val flight2 = Flight("JBU1418", 1543021860, 49.0259128, 2.5538305, false, 100.0, 0.0, 10.0, 0)
-            val flight3 = Flight("JBU1419", 1543021860, 49.0379128, 2.5658305, false, 100.0, 0.0, 10.0, 0)
+            createFlights()
 
             Timer().schedule(object : TimerTask() {
 
                 override fun run() {
-                    flight1.latitude += 0.001
-                    flight1.longitude += 0.001
+                    val random = Random(System.currentTimeMillis())
 
-                    handler.post { liveData.value = listOf(flight1, flight2, flight3) }
+                    flights.forEach {
+                        it.latitude += Math.abs(random.nextLong() % 2) * 0.001
+                        it.longitude += Math.abs(random.nextLong() % 2) * 0.001
+                    }
+
+                    handler.post { liveData.value = flights }
                 }
 
             }, 0, period)
+        }
+
+        private fun createFlights() {
+            flights += Flight("JBU1411", 1543021860, 49.011710, 2.491889, false, 100.0, 0.0, 10.0, 0)
+            flights += Flight("JBU1412", 1543021860, 49.028559, 2.505236, false, 100.0, 0.0, 10.0, 0)
+            flights += Flight("JBU1413", 1543021860, 49.026492, 2.613687, false, 100.0, 0.0, 10.0, 0)
+            flights += Flight("JBU1414", 1543021860, 48.979897, 2.590483, false, 100.0, 0.0, 10.0, 0)
+            flights += Flight("JBU1415", 1543021860, 48.9560408, 2.5148014, false, 100.0, 0.0, 10.0, 0)
         }
 
     }
