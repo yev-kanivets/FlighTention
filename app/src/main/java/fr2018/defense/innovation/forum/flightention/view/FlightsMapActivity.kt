@@ -66,7 +66,7 @@ class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
     override fun moveAndZoomToCDG() {
         val cdg = LatLng(49.0096906, 2.5479245)
         map.addMarker(MarkerOptions().position(cdg).title("CDG"))
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(cdg, 9f))
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(cdg, 10f))
     }
 
     override fun displayFlight(markerOptions: MarkerOptions): Marker = map.addMarker(markerOptions)

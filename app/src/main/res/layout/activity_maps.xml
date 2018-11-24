@@ -29,13 +29,13 @@
         />
 
     <LinearLayout
-        android:visibility="gone"
         android:id="@+id/flightView"
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical"
         android:padding="16dp"
+        android:visibility="gone"
         >
 
       <TextView
@@ -150,18 +150,64 @@
           android:text="Source: ADS-B"
           />
 
-      <ImageView
-          android:layout_width="match_parent"
-          android:layout_height="190dp"
+      <FrameLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
           android:layout_marginBottom="16dp"
           android:background="@color/grey"
-          />
+          android:padding="1dp"
+          >
 
-      <ImageView
-          android:layout_width="match_parent"
-          android:layout_height="190dp"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/crash_twitter"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:background="#22000000"
+            />
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_twitter"
+            />
+
+      </FrameLayout>
+
+      <FrameLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
           android:background="@color/grey"
-          />
+          android:padding="1dp"
+          >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/crash_instagram"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:background="#22000000"
+            />
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_instagram"
+            />
+
+      </FrameLayout>
 
     </LinearLayout>
 
