@@ -22,6 +22,7 @@ import com.google.android.gms.maps.model.MapStyleOptions
 import fr2018.defense.innovation.forum.flightention.model.Flight
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
 import kotlinx.android.synthetic.main.activity_maps.flightView
+import kotlinx.android.synthetic.main.activity_maps.ivClose
 
 class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
 
@@ -45,6 +46,8 @@ class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
         sectionAdapter.addSection(sectionCritical)
         sectionAdapter.addSection(sectionAlert)
         sectionAdapter.addSection(sectionOk)
+
+        ivClose.setOnClickListener { flightView.visibility = View.GONE }
 
         presenter = FlightsMapPresenter(this, FlightRepositoryImpl())
         presenter.start()
