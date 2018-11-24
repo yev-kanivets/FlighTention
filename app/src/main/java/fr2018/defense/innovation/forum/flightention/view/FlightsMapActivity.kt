@@ -78,6 +78,7 @@ class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
     override fun setMap(googleMap: GoogleMap) {
         map = googleMap
         map.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.style_json))
+        map.uiSettings.isMapToolbarEnabled = false
         map.setOnInfoWindowClickListener {
             titleToDisplay = it.title
             flightView.visibility = View.VISIBLE
