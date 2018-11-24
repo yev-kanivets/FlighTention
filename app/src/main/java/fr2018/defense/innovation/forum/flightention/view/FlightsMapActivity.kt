@@ -107,7 +107,7 @@ class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
             tvVelocity.text = "Velocity: ${it.velocity} km/h"
 
             if (it.lastContact == "Lost") {
-                it.lastContact = "Lost!"
+                it.lastContact = "Lost "
                 val pulse = AnimationUtils.loadAnimation(this, R.anim.pulse)
                 pulse.repeatCount = 3
 

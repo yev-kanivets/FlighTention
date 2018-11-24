@@ -36,7 +36,7 @@ class FakeFlightModeler(
 
                     if (it.dangerInPercents > 100) {
                         it.velocity = 0.0
-                        if (it.lastContact == "Lost!") return@forEach
+                        if (it.lastContact == "Lost ") return@forEach
                         it.lastContact = "Lost"
                         return@forEach
                     }
