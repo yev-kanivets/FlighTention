@@ -36,6 +36,7 @@ class FakeFlightModeler(
 
                     if (it.dangerInPercents > 100) {
                         it.velocity = 0.0
+                        if (it.lastContact == "Lost!") return@forEach
                         it.lastContact = "Lost"
                         return@forEach
                     }
@@ -46,7 +47,11 @@ class FakeFlightModeler(
                     it.lastContact = "${3 + Math.abs(random.nextLong()) % 2}s ago"
                     it.velocity += random.nextLong() % 10
 
-                    if (it.callSign == "AZ609") it.dangerInPercents += 0.5
+                    if (it.callSign == "AZ609") {
+                        it.dangerInPercents += 0.5
+                        it.lastContact = "${5 + it.dangerInPercents + Math.abs(random.nextLong()) % 2}s ago"
+                        it.velocity = 900 - 3 * it.dangerInPercents
+                    }
                 }
 
                 handler.post { liveData.value = flights }

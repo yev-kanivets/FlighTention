@@ -93,29 +93,35 @@
           android:id="@+id/tvLastContact"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:layout_marginBottom="2dp"
+          android:background="#33f4aa28"
           />
 
       <TextView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:layout_marginBottom="2dp"
           android:text="Registration: EI-DBM"
           />
 
       <TextView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:layout_marginBottom="2dp"
           android:text="Model: Boeing 777 243ER"
           />
 
       <TextView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:layout_marginBottom="2dp"
           android:text="Model S Code (hex): 4ca1e1"
           />
 
       <TextView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:layout_marginBottom="2dp"
           android:text="Owner: Alitalia"
           />
 
@@ -123,41 +129,49 @@
           android:id="@+id/tvCallSign"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:layout_marginBottom="2dp"
           />
 
       <TextView
           android:id="@+id/tvVelocity"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:layout_marginBottom="2dp"
+          android:background="#33f4aa28"
           />
 
       <TextView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:layout_marginBottom="2dp"
           android:text="Track: 119°"
           />
 
       <TextView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:layout_marginBottom="2dp"
           android:text="Geom. Altitude: 38625ft (11773m)"
           />
 
       <TextView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:layout_marginBottom="2dp"
           android:text="Barom. Altitude: 38975ft (11880m)"
           />
 
       <TextView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:layout_marginBottom="2dp"
           android:text="Vertical Rate: 0ft/min (0.0m/s)"
           />
 
       <TextView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:layout_marginBottom="2dp"
           android:text="Squawk: 6370"
           />
 
@@ -169,11 +183,13 @@
           />
 
       <FrameLayout
+          android:id="@+id/viewTwitter"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginBottom="16dp"
           android:background="@color/grey"
           android:padding="1dp"
+          android:visibility="invisible"
           >
 
         <ImageView
@@ -199,22 +215,24 @@
       </FrameLayout>
 
       <FrameLayout
+          android:id="@+id/viewInstagram"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:background="@color/grey"
           android:padding="1dp"
+          android:visibility="invisible"
           >
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="190dp"
+            android:layout_height="180dp"
             android:scaleType="centerCrop"
             android:src="@drawable/crash_instagram"
             />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="190dp"
+            android:layout_height="180dp"
             android:background="#22000000"
             />
 

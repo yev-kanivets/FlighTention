@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.view.animation.AnimationUtils
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
@@ -29,6 +30,8 @@ import kotlinx.android.synthetic.main.activity_maps.tvCallSign
 import kotlinx.android.synthetic.main.activity_maps.tvLastContact
 import kotlinx.android.synthetic.main.activity_maps.tvRoute
 import kotlinx.android.synthetic.main.activity_maps.tvVelocity
+import kotlinx.android.synthetic.main.activity_maps.viewInstagram
+import kotlinx.android.synthetic.main.activity_maps.viewTwitter
 
 class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
 
@@ -102,6 +105,18 @@ class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
             tvLastContact.text = "Last contact: ${it.lastContact}"
             tvCallSign.text = "Callsign: ${it.callSign}"
             tvVelocity.text = "Velocity: ${it.velocity} km/h"
+
+            if (it.lastContact == "Lost") {
+                it.lastContact = "Lost!"
+                val pulse = AnimationUtils.loadAnimation(this, R.anim.pulse)
+                pulse.repeatCount = 3
+
+                viewTwitter.visibility = View.VISIBLE
+                viewInstagram.visibility = View.VISIBLE
+
+                viewTwitter.startAnimation(pulse)
+                viewInstagram.startAnimation(pulse)
+            }
         }
     }
 
