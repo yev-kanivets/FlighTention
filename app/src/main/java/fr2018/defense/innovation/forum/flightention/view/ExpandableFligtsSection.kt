@@ -3,6 +3,7 @@ package fr2018.defense.innovation.forum.flightention.view
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.ViewHolder
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import fr2018.defense.innovation.forum.flightention.R
@@ -14,6 +15,7 @@ import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection
 class ExpandableFligtsSection(
     private val sectionAdapter: SectionedRecyclerViewAdapter,
     private val title: String,
+    private val badgeBackground: Int,
     private var flights: List<Flight>
 ) : StatelessSection(
     SectionParameters.builder()
@@ -37,12 +39,15 @@ class ExpandableFligtsSection(
             sectionAdapter.notifyDataSetChanged()
         }
 
+        headerViewHolder.tvBadge.setBackgroundResource(badgeBackground)
+
         return headerViewHolder
     }
 
     override fun onBindHeaderViewHolder(holder: ViewHolder) {
         val headerViewHolder = holder as HeaderViewHolder
         headerViewHolder.tvTitle.text = title
+        headerViewHolder.tvBadge.text = flights.size.toString()
     }
 
     override fun onBindItemViewHolder(holder: ViewHolder, position: Int) {
@@ -61,6 +66,7 @@ class ExpandableFligtsSection(
 
         val ivArrow: ImageView = itemView.findViewById(R.id.ivArrow)
         val tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
+        val tvBadge: TextView = itemView.findViewById(R.id.tvBadge)
 
     }
 

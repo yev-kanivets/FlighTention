@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.view.animation.AnimationUtils
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
@@ -32,9 +33,11 @@ class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
     private lateinit var recyclerView: RecyclerView
 
     private val sectionAdapter = SectionedRecyclerViewAdapter()
-    private val sectionCritical = ExpandableFligtsSection(sectionAdapter, "Anomalie critique", listOf())
-    private val sectionAlert = ExpandableFligtsSection(sectionAdapter, "Anomalie détecté", listOf())
-    private val sectionOk = ExpandableFligtsSection(sectionAdapter, "R.A.S", listOf())
+    private val sectionCritical =
+        ExpandableFligtsSection(sectionAdapter, "Anomalie critique", R.drawable.ic_flight_critical, listOf())
+    private val sectionAlert =
+        ExpandableFligtsSection(sectionAdapter, "Anomalie détecté", R.drawable.ic_flight_alert, listOf())
+    private val sectionOk = ExpandableFligtsSection(sectionAdapter, "R.A.S", R.drawable.ic_flight_ok, listOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

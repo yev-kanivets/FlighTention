@@ -30,12 +30,22 @@
 
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_margin="16dp"
+        android:layout_weight="1"
         android:textColor="@color/grey"
         android:textSize="18sp"
         android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/tvBadge"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
         />
 
   </LinearLayout>
