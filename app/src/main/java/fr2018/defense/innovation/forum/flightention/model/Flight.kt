@@ -8,5 +8,5 @@ data class Flight(
     var goalLongitude: Double,
     val onGround: Boolean,
     val velocity: Double,
-    val dangerInPercents: Int
+    var dangerInPercents: Double
 )
