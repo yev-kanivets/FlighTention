@@ -29,13 +29,139 @@
         />
 
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/flightView"
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical"
-        android:visibility="gone"
+        android:padding="16dp"
         >
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="16dp"
+          android:background="#11000000"
+          android:gravity="center"
+          android:text="AZ609"
+          android:textSize="32sp"
+          />
+
+      <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginBottom="8dp"
+          android:background="@color/grey"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="8dp"
+          android:gravity="center"
+          android:text="CDG --> LIRF"
+          android:textSize="24sp"
+          />
+
+      <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginBottom="8dp"
+          android:background="@color/grey"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Last contact: 30s ago"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Registration: EI-DBM"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Model: Boeing 777 243ER"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Model S Code (hex): 4ca1e1"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Owner: Alitalia"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Callsign: JBU1411"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Velocity: 510kn (944 km/h)"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Track: 119°"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Geom. Altitude: 38625ft (11773m)"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Barom. Altitude: 38975ft (11880m)"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Vertical Rate: 0ft/min (0.0m/s)"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Squawk: 6370"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="16dp"
+          android:text="Source: ADS-B"
+          />
+
+      <ImageView
+          android:layout_width="match_parent"
+          android:layout_height="190dp"
+          android:layout_marginBottom="16dp"
+          android:background="@color/grey"
+          />
+
+      <ImageView
+          android:layout_width="match_parent"
+          android:layout_height="190dp"
+          android:background="@color/grey"
+          />
 
     </LinearLayout>
 
