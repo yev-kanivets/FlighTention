@@ -15,10 +15,7 @@ import fr2018.defense.innovation.forum.flightention.R.layout
 import fr2018.defense.innovation.forum.flightention.contract.FlightsMapContract
 import fr2018.defense.innovation.forum.flightention.presenter.FlightsMapPresenter
 import fr2018.defense.innovation.forum.flightention.repo.FlightRepositoryImpl
-import kotlinx.android.synthetic.main.activity_maps.view.recyclerView
 import com.google.android.gms.maps.model.MapStyleOptions
-
-
 
 class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
 
@@ -50,7 +47,7 @@ class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
     override fun moveAndZoomToCDG() {
         val sydney = LatLng(49.0096906, 2.5479245)
         map.addMarker(MarkerOptions().position(sydney).title("CDG"))
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 12f))
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 9f))
     }
 
     override fun displayFlight(markerOptions: MarkerOptions): Marker = map.addMarker(markerOptions)
