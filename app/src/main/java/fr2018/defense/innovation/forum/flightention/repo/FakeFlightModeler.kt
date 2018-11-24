@@ -25,7 +25,7 @@ class FakeFlightModeler(
                     val diffLon = it.goalLongitude - it.longitude
                     val diffSum = Math.abs(diffLat) + Math.abs(diffLon)
 
-                    if (diffSum < 0.002) return@forEach
+                    if (diffSum < 0.002 || it.dangerInPercents > 100) return@forEach
 
                     it.latitude += 0.001 * diffLat / diffSum
                     it.longitude += 0.001 * diffLon / diffSum

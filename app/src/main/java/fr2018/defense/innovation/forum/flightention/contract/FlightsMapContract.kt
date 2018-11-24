@@ -1,6 +1,7 @@
 package fr2018.defense.innovation.forum.flightention.contract
 
 import android.arch.lifecycle.LifecycleOwner
+import android.content.Context
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.Marker
@@ -10,6 +11,8 @@ import fr2018.defense.innovation.forum.flightention.model.Flight
 interface FlightsMapContract {
 
     interface View : LifecycleOwner {
+
+        fun getContext(): Context
 
         fun initMapFragment()
 

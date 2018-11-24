@@ -1,5 +1,6 @@
 package fr2018.defense.innovation.forum.flightention.view
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -46,6 +47,8 @@ class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
         presenter = FlightsMapPresenter(this, FlightRepositoryImpl())
         presenter.start()
     }
+
+    override fun getContext(): Context = baseContext
 
     override fun initMapFragment() {
         val mapFragment = supportFragmentManager.findFragmentById(id.map) as SupportMapFragment
