@@ -35,14 +35,24 @@ class FlightsMapPresenter(
 
     private suspend fun fetchFlights() {
         flightRepository.getAllFlights().observe(presentedView, Observer<List<Flight>> { flights ->
-            flights?.forEach { flight ->
-                flightMarkers[flight.callSign]?.let { marker ->
-                    moveFlightMarker(marker, flight)
-                } ?: addFlightMarker(
-                    flight
-                )
-            }
+            displayAndMoveMarkers(flights)
+            displayFlightCategories(flights)
         })
+    }
+
+    private fun displayAndMoveMarkers(flights: List<Flight>?) {
+        flights?.forEach { flight ->
+            flightMarkers[flight.callSign]?.let { marker ->
+                moveFlightMarker(marker, flight)
+            } ?: addFlightMarker(flight)
+        }
+    }
+
+    private fun displayFlightCategories(flights: List<Flight>?) {
+        val flightsOk = flights?.filter { it.dangerInPercents <= 20 } ?: listOf()
+        val flightsAlert = flights?.filter { it.dangerInPercents in 21..80 } ?: listOf()
+        val flightsCritical = flights?.filter { it.dangerInPercents > 80 } ?: listOf()
+        presentedView.displayFlightCategories(flightsOk, flightsAlert, flightsCritical)
     }
 
     private fun moveFlightMarker(marker: Marker, flight: Flight) {

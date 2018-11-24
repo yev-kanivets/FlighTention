@@ -13,13 +13,21 @@
       tools:context=".view.FlightsMapActivity"
       />
 
-  <android.support.v7.widget.RecyclerView
-      android:id="@+id/recyclerView"
-      android:layout_width="300dp"
+  <FrameLayout
+      android:layout_width="wrap_content"
       android:layout_height="match_parent"
-      android:layout_gravity="start"
       android:layout_margin="16dp"
-      android:background="@color/transparentBlack"
-      />
+      android:clickable="true"
+      >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/transparentWhite"
+        />
+
+  </FrameLayout>
 
 </FrameLayout>

@@ -5,6 +5,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import fr2018.defense.innovation.forum.flightention.model.Flight
 
 interface FlightsMapContract {
 
@@ -17,6 +18,8 @@ interface FlightsMapContract {
         fun moveAndZoomToCDG()
 
         fun displayFlight(markerOptions: MarkerOptions): Marker
+
+        fun displayFlightCategories(flightsOk: List<Flight>, flightsAlert: List<Flight>, flightsCritical: List<Flight>)
 
     }
 
