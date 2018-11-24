@@ -48,10 +48,10 @@
           >
 
         <TextView
+            android:id="@+id/tvAirplaneTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="AZ609"
             android:textSize="32sp"
             />
 
@@ -74,11 +74,11 @@
           />
 
       <TextView
+          android:id="@+id/tvRoute"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginBottom="8dp"
           android:gravity="center"
-          android:text="CDG --> LIRF"
           android:textSize="24sp"
           />
 
@@ -120,15 +120,15 @@
           />
 
       <TextView
+          android:id="@+id/tvCallSign"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:text="Callsign: JBU1411"
           />
 
       <TextView
+          android:id="@+id/tvVelocity"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:text="Velocity: 510kn (944 km/h)"
           />
 
       <TextView

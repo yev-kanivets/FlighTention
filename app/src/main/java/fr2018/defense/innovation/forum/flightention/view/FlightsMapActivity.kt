@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import android.view.animation.AnimationUtils
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
@@ -24,6 +23,10 @@ import fr2018.defense.innovation.forum.flightention.model.Flight
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
 import kotlinx.android.synthetic.main.activity_maps.flightView
 import kotlinx.android.synthetic.main.activity_maps.ivClose
+import kotlinx.android.synthetic.main.activity_maps.tvAirplaneTitle
+import kotlinx.android.synthetic.main.activity_maps.tvCallSign
+import kotlinx.android.synthetic.main.activity_maps.tvRoute
+import kotlinx.android.synthetic.main.activity_maps.tvVelocity
 
 class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
 
@@ -31,6 +34,7 @@ class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
 
     private lateinit var map: GoogleMap
     private lateinit var recyclerView: RecyclerView
+    private var titleToDisplay: String? = null
 
     private val sectionAdapter = SectionedRecyclerViewAdapter()
     private val sectionCritical =
@@ -50,7 +54,10 @@ class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
         sectionAdapter.addSection(sectionAlert)
         sectionAdapter.addSection(sectionOk)
 
-        ivClose.setOnClickListener { flightView.visibility = View.GONE }
+        ivClose.setOnClickListener {
+            flightView.visibility = View.GONE
+            titleToDisplay = null
+        }
 
         presenter = FlightsMapPresenter(this, FlightRepositoryImpl())
         presenter.start()
@@ -66,7 +73,10 @@ class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
     override fun setMap(googleMap: GoogleMap) {
         map = googleMap
         map.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.style_json))
-        map.setOnInfoWindowClickListener { flightView.visibility = View.VISIBLE }
+        map.setOnInfoWindowClickListener {
+            titleToDisplay = it.title
+            flightView.visibility = View.VISIBLE
+        }
     }
 
     override fun moveAndZoomToCDG() {
@@ -83,6 +93,13 @@ class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
         sectionCritical.updateFlights(flightsCritical)
         sectionAlert.updateFlights(flightsAlert)
         sectionOk.updateFlights(flightsOk)
+
+        (flightsOk + flightsAlert + flightsCritical).find { it.callSign == titleToDisplay }?.let {
+            tvAirplaneTitle.text = it.callSign
+            tvRoute.text = "${it.fromAirport} --> ${it.toAirport}"
+            tvCallSign.text = "Callsign: ${it.callSign}"
+            tvVelocity.text = "Velocity: ${it.velocity} km/h"
+        }
     }
 
 }
