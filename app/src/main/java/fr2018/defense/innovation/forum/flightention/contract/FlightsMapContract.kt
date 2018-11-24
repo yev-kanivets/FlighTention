@@ -3,7 +3,8 @@ package fr2018.defense.innovation.forum.flightention.contract
 import android.arch.lifecycle.LifecycleOwner
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
-import fr2018.defense.innovation.forum.flightention.model.Flight
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
 
 interface FlightsMapContract {
 
@@ -15,7 +16,7 @@ interface FlightsMapContract {
 
         fun moveAndZoomToCDG()
 
-        fun displayFlight(flight: Flight)
+        fun displayFlight(markerOptions: MarkerOptions): Marker
 
     }
 

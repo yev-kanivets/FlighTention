@@ -6,11 +6,11 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import fr2018.defense.innovation.forum.flightention.R.id
 import fr2018.defense.innovation.forum.flightention.R.layout
 import fr2018.defense.innovation.forum.flightention.contract.FlightsMapContract
-import fr2018.defense.innovation.forum.flightention.model.Flight
 import fr2018.defense.innovation.forum.flightention.presenter.FlightsMapPresenter
 import fr2018.defense.innovation.forum.flightention.repo.FlightRepositoryImpl
 
@@ -43,9 +43,6 @@ class FlightsMapActivity : AppCompatActivity(), FlightsMapContract.View {
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 12f))
     }
 
-    override fun displayFlight(flight: Flight) {
-        val latLng = LatLng(flight.latitude, flight.longitude)
-        map.addMarker(MarkerOptions().position(latLng).title(flight.callSign))
-    }
+    override fun displayFlight(markerOptions: MarkerOptions): Marker = map.addMarker(markerOptions)
 
 }
