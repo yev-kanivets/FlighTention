@@ -24,10 +24,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        moveAndZoomToCDG()
+    }
 
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+    private fun moveAndZoomToCDG() {
+        val sydney = LatLng(49.0096906, 2.5479245)
+        mMap.addMarker(MarkerOptions().position(sydney).title("CDG"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 12f))
     }
 }
