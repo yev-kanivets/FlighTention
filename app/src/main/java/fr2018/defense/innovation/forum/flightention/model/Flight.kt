@@ -1,6 +1,6 @@
 package fr2018.defense.innovation.forum.flightention.model
 
-data class FlightData(
+data class Flight(
     val callSign: String,
     val lastContactInS: Long,
     val latitude: Double,
