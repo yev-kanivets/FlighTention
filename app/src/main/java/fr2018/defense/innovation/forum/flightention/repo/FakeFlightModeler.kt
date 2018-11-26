@@ -48,7 +48,7 @@ class FakeFlightModeler(
                     it.velocity += random.nextLong() % 10
 
                     if (it.callSign == "AZ609") {
-                        it.dangerInPercents += 0.5
+                        it.dangerInPercents += 0.35
                         it.lastContact = "${5 + it.dangerInPercents + Math.abs(random.nextLong()) % 2}s ago"
                         it.velocity = 900 - 3 * it.dangerInPercents
                     }
